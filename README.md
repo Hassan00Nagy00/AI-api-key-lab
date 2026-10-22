@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+HEAD
 # AI API Key Lab
 
 **AI API Key Lab** is a local-first workbench engineered for developers, AI engineers, and researchers who collect free, trial, and personal AI API keys.
