@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI API Key Lab
 
 **AI API Key Lab** is a local-first workbench engineered for developers, AI engineers, and researchers who collect free, trial, and personal AI API keys.
@@ -54,3 +55,7 @@ npm run test:gate
 # Lint & typecheck
 npm run lint
 ```
+=======
+# AI-api-key-lab
+Secure local manager for testing free &amp; trial AI API keys across 25+ providers.  Store, discover models dynamically, verify which keys actually work, chat through validated keys.  macOS + web build. English &amp; Arabic.
+>>>>>>> cb7c6712b019bb40e0a06d8a7a47ce8bb4752df7
