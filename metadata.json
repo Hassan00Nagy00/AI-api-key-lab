@@ -1,0 +1,6 @@
+{
+  "name": "AI API Key Lab",
+  "description": "AI API Key Lab — key validation, model discovery, quota inspection, and interactive chat playground.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

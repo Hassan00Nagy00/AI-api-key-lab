@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- macOS Big Sur / Sonoma Squircle Body Gradient -->
+    <linearGradient id="squircleBg" x1="100" y1="100" x2="924" y2="924" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="52%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#090D16" />
+    </linearGradient>
+
+    <!-- Subtle Top Rim Highlight -->
+    <linearGradient id="squircleRim" x1="512" y1="100" x2="512" y2="924" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.45" />
+      <stop offset="35%" stop-color="#6366F1" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0.6" />
+    </linearGradient>
+
+    <!-- Inner Shield / Vault Glow -->
+    <radialGradient id="coreGlow" cx="512" cy="480" r="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.28" />
+      <stop offset="60%" stop-color="#0EA5E9" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Primary Key & Circuit Accent Gradient -->
+    <linearGradient id="keyAccent" x1="256" y1="300" x2="768" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#6366F1" />
+    </linearGradient>
+
+    <!-- Verified Signal Emerald Accent -->
+    <linearGradient id="signalEmerald" x1="600" y1="260" x2="760" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+
+    <!-- Drop Shadow for Squircle (stays within 1024x1024 canvas) -->
+    <filter id="squircleShadow" x="5%" y="5%" width="90%" height="92%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000000" flood-opacity="0.55" />
+    </filter>
+
+    <filter id="symbolShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Apple HIG 824x824 Squircle centered at (512, 512), margin 100px each side, rx=185 -->
+  <g filter="url(#squircleShadow)">
+    <rect x="100" y="100" width="824" height="824" rx="185" ry="185" fill="url(#squircleBg)" />
+    <rect x="103" y="103" width="818" height="818" rx="182" ry="182" fill="none" stroke="url(#squircleRim)" stroke-width="6" />
+  </g>
+
+  <!-- Subtle Radial Ambient Glow -->
+  <circle cx="512" cy="492" r="330" fill="url(#coreGlow)" />
+
+  <!-- Subtle Geometric Hexagonal Shield / Lab Grid Frame -->
+  <path
+    d="M512 212 L746 347 L746 617 L512 752 L278 617 L278 347 Z"
+    fill="#0B1324"
+    fill-opacity="0.65"
+    stroke="#1E293B"
+    stroke-width="8"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M512 240 L722 361 L722 603 L512 724 L302 603 L302 361 Z"
+    fill="none"
+    stroke="#38BDF8"
+    stroke-opacity="0.22"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+
+  <!-- Connection Nodes (Representing Multi-Provider API Routing & Verification) -->
+  <g stroke="#38BDF8" stroke-opacity="0.4" stroke-width="6" stroke-linecap="round">
+    <line x1="392" y1="362" x2="318" y2="296" />
+    <line x1="392" y1="602" x2="318" y2="668" />
+    <line x1="650" y1="376" x2="718" y2="308" />
+  </g>
+  <circle cx="318" cy="296" r="16" fill="#0F172A" stroke="#38BDF8" stroke-width="7" />
+  <circle cx="318" cy="668" r="16" fill="#0F172A" stroke="#6366F1" stroke-width="7" />
+
+  <!-- Core Key Artifact (Bold Silhouette Readable at 16x16 up to 1024x1024) -->
+  <g filter="url(#symbolShadow)">
+    <!-- Key Bow (Left Ring) -->
+    <circle
+      cx="392"
+      cy="482"
+      r="116"
+      fill="none"
+      stroke="url(#keyAccent)"
+      stroke-width="44"
+    />
+    <!-- Inner Key Bow Core Node -->
+    <circle cx="392" cy="482" r="32" fill="#38BDF8" />
+
+    <!-- Key Shaft (Horizontal Blade) -->
+    <path
+      d="M498 482 L736 482"
+      stroke="url(#keyAccent)"
+      stroke-width="44"
+      stroke-linecap="round"
+    />
+
+    <!-- Key Bit Teeth (Precision Cryptographic Notches) -->
+    <path
+      d="M618 482 L618 576"
+      stroke="url(#keyAccent)"
+      stroke-width="40"
+      stroke-linecap="round"
+    />
+    <path
+      d="M704 482 L704 606"
+      stroke="url(#keyAccent)"
+      stroke-width="40"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <!-- Verified Pulse Node (Top-Right Emerald Verification Badge) -->
+  <g filter="url(#symbolShadow)">
+    <circle cx="718" cy="308" r="46" fill="url(#signalEmerald)" />
+    <path
+      d="M698 308 L712 322 L740 294"
+      fill="none"
+      stroke="#062E22"
+      stroke-width="12"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+</svg>

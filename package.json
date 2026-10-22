@@ -1,0 +1,47 @@
+{
+  "name": "react-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build && tsx scripts/buildElectron.ts",
+    "preview": "vite preview",
+    "clean": "rm -rf dist dist-electron server.js",
+    "lint": "tsc --noEmit && tsx scripts/checkArchitecture.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/test/*.test.ts",
+    "test:gate": "tsx --test src/test/testGate.ts",
+    "fixtures:record": "tsx scripts/record-fixtures.ts",
+    "verify:report": "tsx scripts/verifyReport.ts",
+    "icons:generate": "tsx scripts/generateIcons.ts",
+    "electron:build": "vite build && tsx scripts/buildElectron.ts",
+    "electron:dev": "tsx scripts/buildElectron.ts && electron dist-electron/main.cjs",
+    "electron:dist": "npm run icons:generate && npm run electron:build && electron-builder --mac dmg zip --arm64"
+  },
+  "dependencies": {
+    "@google/genai": "2.30.0",
+    "@tailwindcss/vite": "4.3.3",
+    "@vitejs/plugin-react": "6.1.2",
+    "dotenv": "17.4.2",
+    "express": "4.22.3",
+    "lucide-react": "0.546.0",
+    "motion": "12.43.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "undici": "8.12.3",
+    "vite": "8.3.5",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "autoprefixer": "10.6.1",
+    "esbuild": "0.25.12",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "@types/express": "4.17.25"
+  }
+}

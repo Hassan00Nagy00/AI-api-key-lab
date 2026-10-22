@@ -1,0 +1,36 @@
+name: macOS Desktop Release Check
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  macos-release-check:
+    name: Build & Verify macOS arm64 Electron Package
+    runs-on: macos-14
+    steps:
+      - name: Checkout repository (pinned SHA v4.2.2)
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Setup Node.js 22 (pinned SHA v4.1.0)
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies (--ignore-scripts)
+        run: |
+          npm ci --ignore-scripts
+          npm rebuild esbuild electron
+
+      - name: Run Lint, Typecheck, Tests & Gate
+        run: |
+          npm run lint
+          npm run typecheck
+          npm test
+          npm run test:gate
+
+      - name: Build macOS Electron Bundle
+        run: npm run electron:build

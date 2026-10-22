@@ -1,0 +1,12 @@
+{
+  "providerId": "google-gemini",
+  "case": "wrong-model",
+  "recordedAt": "2026-10-15T12:00:00.000Z",
+  "httpStatus": 404,
+  "headers": {
+    "content-type": "application/json; charset=UTF-8"
+  },
+  "bodyText": "{\"error\":{\"code\":404,\"message\":\"models/nonexistent-model-id-99999 is not found for API version v1beta, or is not supported for generateContent.\",\"status\":\"NOT_FOUND\"}}",
+  "expectedStatus": "no-usable-model",
+  "expectedCategory": "model-not-found"
+}

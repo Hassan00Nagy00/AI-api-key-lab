@@ -1,0 +1,33 @@
+{
+  "root": true,
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["*/secretVault", "./secretVault", "../services/secretVault", "../../services/secretVault"],
+            "message": "§0A.6 Mechanical Late-Binding Rule: Only ApiExecutor (src/services/executor.ts) and SecretStore (src/services/secretStore.ts) may import secretVault."
+          },
+          {
+            "group": ["*/secretStore", "./secretStore", "../services/secretStore", "../../services/secretStore"],
+            "message": "§0A.6 Mechanical Late-Binding Rule: UI modules, hooks, and adapters must never import secretStore directly."
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/services/executor.ts",
+        "src/services/secretStore.ts",
+        "src/services/storage.ts",
+        "src/services/exportService.ts"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ]
+}

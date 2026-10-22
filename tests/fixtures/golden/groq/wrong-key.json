@@ -1,0 +1,12 @@
+{
+  "providerId": "groq",
+  "case": "wrong-key",
+  "recordedAt": "2026-10-15T12:00:00.000Z",
+  "httpStatus": 401,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "bodyText": "{\"error\":{\"message\":\"Invalid API Key\",\"type\":\"invalid_request_error\",\"code\":\"invalid_api_key\"}}",
+  "expectedStatus": "unauthorized",
+  "expectedCategory": "auth"
+}

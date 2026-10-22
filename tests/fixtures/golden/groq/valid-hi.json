@@ -1,0 +1,13 @@
+{
+  "providerId": "groq",
+  "case": "valid-hi",
+  "recordedAt": "2026-10-15T12:00:00.000Z",
+  "httpStatus": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-ratelimit-limit-requests": "14400",
+    "x-ratelimit-remaining-requests": "14399"
+  },
+  "bodyText": "{\"id\":\"[REDACTED_REQUEST_ID]\",\"object\":\"chat.completion\",\"model\":\"llama-3.1-8b-instant\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hi there! How can I assist you?\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":11,\"completion_tokens\":8,\"total_tokens\":19}}",
+  "expectedStatus": "working"
+}

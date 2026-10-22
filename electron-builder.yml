@@ -1,0 +1,44 @@
+appId: com.aiapikeylab.desktop
+productName: AI API Key Lab
+copyright: Copyright © 2026 AI API Key Lab
+asar: true
+directories:
+  output: release
+  buildResources: assets
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - assets/icon.png
+  - assets/iconTemplate.png
+  - assets/iconTemplate@2x.png
+  - package.json
+extraMetadata:
+  main: dist-electron/main.cjs
+afterPack: scripts/afterPackFuses.cjs
+mac:
+  category: public.app-category.developer-tools
+  icon: assets/icon.icns
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+  minimumSystemVersion: "13.0"
+  target:
+    - target: dmg
+      arch:
+        - arm64
+    - target: zip
+      arch:
+        - arm64
+dmg:
+  artifactName: "${productName}-${version}-arm64.${ext}"
+  title: "${productName} ${version}"
+  contents:
+    - x: 140
+      y: 220
+    - x: 410
+      y: 220
+      type: link
+      path: /Applications
+zip:
+  artifactName: "${productName}-${version}-arm64.${ext}"

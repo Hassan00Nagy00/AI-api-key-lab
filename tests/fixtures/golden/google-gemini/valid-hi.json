@@ -1,0 +1,11 @@
+{
+  "providerId": "google-gemini",
+  "case": "valid-hi",
+  "recordedAt": "2026-10-15T12:00:00.000Z",
+  "httpStatus": 200,
+  "headers": {
+    "content-type": "application/json; charset=UTF-8"
+  },
+  "bodyText": "{\"candidates\":[{\"content\":{\"parts\":[{\"text\":\"Hello! How can I help you today?\"}],\"role\":\"model\"},\"finishReason\":\"STOP\"}],\"usageMetadata\":{\"promptTokenCount\":2,\"candidatesTokenCount\":9,\"totalTokenCount\":11}}",
+  "expectedStatus": "working"
+}

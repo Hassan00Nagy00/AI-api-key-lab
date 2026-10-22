@@ -1,0 +1,52 @@
+name: CI Verification & Secret Scan
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Lint, Typecheck, Unit Tests, Gate & Build Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository (pinned SHA v4.2.2)
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Setup Node.js 22 (pinned SHA v4.1.0)
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies (--ignore-scripts supply-chain guard)
+        run: |
+          npm ci --ignore-scripts
+          npm rebuild esbuild
+
+      - name: Run Lint & Mechanical Late-Binding Check
+        run: npm run lint
+
+      - name: Run TypeScript Typecheck
+        run: npm run typecheck
+
+      - name: Run Unit & Contract Tests
+        run: npm test
+
+      - name: Run Integration Gate & Canary-Secret Test
+        run: npm run test:gate
+
+      - name: Build Production Bundle
+        run: npm run build
+
+      - name: Scan Build Output (dist/) for Secret Patterns
+        run: |
+          if grep -RInE "(AIzaSy[A-Za-z0-9_-]{29,}|sk-or-v1-[a-f0-9]{48,}|sk-proj-[A-Za-z0-9_-]{40,}|sk-ant-[A-Za-z0-9_-]{40,}|gsk_[A-Za-z0-9]{40,}|CANARY-[A-Za-z0-9_-]{6,})" dist/ ; then
+            echo "FATAL: Secret pattern detected in build output dist/!"
+            exit 1
+          fi
+          echo "Build output scan clean: 0 secret patterns found in dist/."

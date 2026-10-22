@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Cairo", system-ui, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+}
+
+code, kbd, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* macOS Light Mode Theme Overrides */
+html.light .bg-zinc-950,
+html.light .bg-zinc-950\/80,
+html.light .bg-zinc-950\/40 {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html.light .bg-zinc-900,
+html.light .bg-zinc-900\/60,
+html.light .bg-zinc-900\/90,
+html.light .bg-zinc-900\/40 {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.light .bg-zinc-800,
+html.light .bg-zinc-800\/60 {
+  background-color: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+html.light .border-zinc-800,
+html.light .border-zinc-800\/80,
+html.light .border-zinc-800\/60,
+html.light .border-zinc-700,
+html.light .border-zinc-700\/50 {
+  border-color: #cbd5e1 !important;
+}
+
+html.light .text-zinc-100,
+html.light .text-zinc-200 {
+  color: #0f172a !important;
+}
+
+html.light .text-zinc-300 {
+  color: #1e293b !important;
+}
+
+html.light .text-zinc-400,
+html.light .text-zinc-500 {
+  color: #475569 !important;
+}
+

@@ -1,0 +1,13 @@
+{
+  "providerId": "google-gemini",
+  "case": "rate-limit",
+  "recordedAt": "2026-10-15T12:00:00.000Z",
+  "httpStatus": 429,
+  "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "retry-after": "30"
+  },
+  "bodyText": "{\"error\":{\"code\":429,\"message\":\"Resource has been exhausted (e.g. check quota).\",\"status\":\"RESOURCE_EXHAUSTED\"}}",
+  "expectedStatus": "rate-limited",
+  "expectedCategory": "quota-exhausted"
+}
